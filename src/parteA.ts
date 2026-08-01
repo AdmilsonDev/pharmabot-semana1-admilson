@@ -32,9 +32,24 @@ function classificarReceita(pedido: Pedido): string {
     if (!pedido.precisaReceita) return "Liberado"
     
     const receitaAnexada = pedido.receitaAnexada ? "liberado com receita" : "aguardando receita"
-    return receitaAnexada;
-    
+    return receitaAnexada;   
 }
+
+// A4. podeReceberCampanha
+interface Contato {
+    optIn: boolean,
+    telefoneValido: boolean
+}
+
+function podeReceberCampanha(contato: Contato): boolean {
+
+    if (contato.optIn == true && contato.telefoneValido == true) {
+        return true
+    }
+    
+    return false;
+}
+
 
 
 
@@ -52,16 +67,27 @@ function test() {
     //     console.log(classificarEstoque(numbers))
     // }
 
-    // A3. classificarReceita
-    const arrayTestPedidos: Pedido[] = [
-        {precisaReceita: false, receitaAnexada: false},
-        {precisaReceita: false, receitaAnexada: true},
-        {precisaReceita: true, receitaAnexada: false},
-        {precisaReceita: true, receitaAnexada: true},
+    // // A3. classificarReceita
+    // const arrayTestPedidos: Pedido[] = [
+    //     {precisaReceita: false, receitaAnexada: false},
+    //     {precisaReceita: false, receitaAnexada: true},
+    //     {precisaReceita: true, receitaAnexada: false},
+    //     {precisaReceita: true, receitaAnexada: true},
+    // ]
+
+    // const verificarReceitas = arrayTestPedidos.map(classificarReceita)
+    // console.log(verificarReceitas)
+
+    // A4. podeReceberCampanha
+     const arrayTestContatos: Contato[] = [
+        {optIn: true, telefoneValido: true},
+        {optIn: true, telefoneValido: false},
+        {optIn: false, telefoneValido: true},
+        {optIn: false, telefoneValido: false},
     ]
 
-    const verificarReceitas = arrayTestPedidos.map(classificarReceita)
-    console.log(verificarReceitas)
+    const verificarContatos = arrayTestContatos.map(podeReceberCampanha)
+    console.log(verificarContatos)
 
 }
 
