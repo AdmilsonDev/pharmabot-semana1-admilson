@@ -1,3 +1,4 @@
+// A1. ehHorarioComercial
 function ehHorarioComercial(hora: number): boolean {
 
     const horarioValido: boolean = hora < 8 || hora >= 22;
@@ -7,13 +8,36 @@ function ehHorarioComercial(hora: number): boolean {
     return true
 }
 
-const arrayTest: number[] = [8, 21, 22, 7, 0, 23, -1, 24, 12];
+// A2. classificarEstoque
+function classificarEstoque(quantidade: number): string {
+
+    if (quantidade < 0) return "Quantidade invalida"
+
+    if (quantidade == 0) return "Sem estoque"
+
+    if (quantidade == 1 || quantidade <= 5) return "Estoque baixo"
+
+    return "Estoque ok"
+  
+}
+
 
 function test() {
 
-   for (const numbers of arrayTest) {
-    console.log(ehHorarioComercial(numbers))
-   }
+    // A1. ehHorarioComercial teste
+    // const arrayTest: number[] = [8, 21, 22, 7, 0, 23, -1, 24, 12];
+
+    // for (const numbers of arrayTest) {
+    //     console.log(ehHorarioComercial(numbers))
+    // }
+
+    // A2. classificarEstoque
+    const arrayTestEstoque: number[] = [0, 1, 5, 6, 20, -1, -10]
+
+    for (const numbers of arrayTestEstoque) {
+        console.log(classificarEstoque(numbers))
+    }
+
 }
 
 test();
