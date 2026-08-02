@@ -12,8 +12,6 @@ const arrayCategorias: PalavrasDB[] = [
     {prioridade: 4, categoria: "saudacao", palavrasChave: ["oi", "ola", "olá", "bom dia", "boa tarde", "boa noite"]},
 ]
 
-
-
 function classificarMensagem(texto: string): string {
 
     if (texto == "" || texto == " " || texto == null) return "outro"
@@ -23,7 +21,7 @@ function classificarMensagem(texto: string): string {
                             .toLocaleLowerCase()
                             .trim();
 
-    textoLimpo = " " + textoLimpo + " ";
+    textoLimpo = " " + textoLimpo + " "
 
     for (const obj of arrayCategorias) {
         for (const palavra of obj.palavrasChave) {
@@ -37,19 +35,20 @@ function classificarMensagem(texto: string): string {
 }
 
 const arrayTest: string[] = ["Oi, tudo bem?",
-"Bom dia! Vocês entregam hoje?",
-"Boa noite, gostaria de saber sobre um remédio",
-"O atendimento de vocês foi ótimo, parabéns!",
-"Preciso de dois produtos para minha mãe",
-"É urgente, minha filha está passando mal, preciso de socorro!",
-"Isso é um absurdo, péssimo atendimento, urgente!",
-"Quero reclamar, o produto veio errado e isso está me deixando insatisfeito",
-"Reclamação: horário de vocês está errado no site, corrijam!",
-"Qual o horário de vocês? A loja fecha que horas?",
-"Oi, qual o horário de vocês?",
-"OI, BOM DIA, TUDO BEM???",
-"",
-" "]
+                            "Bom dia! Vocês entregam hoje?",
+                            "Boa noite, gostaria de saber sobre um remédio",
+                            "O atendimento de vocês foi ótimo, parabéns!",
+                            "Preciso de dois produtos para minha mãe",
+                            "É urgente, minha filha está passando mal, preciso de socorro!",
+                            "Isso é um absurdo, péssimo atendimento, urgente!",
+                            "Quero reclamar, o produto veio errado e isso está me deixando insatisfeito",
+                            "Reclamação: horário de vocês está errado no site, corrijam!",
+                            "Qual o horário de vocês? A loja fecha que horas?",
+                            "Oi, qual o horário de vocês?",
+                            "OI, BOM DIA, TUDO BEM???",
+                            "",
+                            " "
+                        ]
 
 function test() {
     for (const element of arrayTest){
