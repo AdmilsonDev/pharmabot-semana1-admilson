@@ -1,0 +1,23 @@
+
+interface Iten {
+    preco: number,
+    quantidade: number
+}
+
+const arrayDeCompras: Iten[] = [{ preco: 0.1, quantidade: 1 }, { preco: 0.2, quantidade: 1 }]
+// [{ preco: 19.9, quantidade: 3 }, { preco: 5.5, quantidade: 2 }, ]
+
+let valorFinal: number = 0;
+function somarCarrinho(itens: { preco: number; quantidade: number }[]): number {
+
+    for(const iten of itens){
+        let valorIten = iten.preco * iten.quantidade
+        valorFinal += valorIten;
+    }
+
+    return 0.0
+}
+
+
+somarCarrinho(arrayDeCompras)
+console.log(valorFinal.toFixed(1))
