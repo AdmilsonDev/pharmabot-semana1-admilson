@@ -47,4 +47,19 @@ for (const lista of listaDeTickets) {
     console.log(contarPorStatus(lista))
 }
 
+//A3. maiorCompra
+const valoresList: number[] = [50]
 
+function maiorCompra(valores: number[]): number {
+
+    if (valores.length == 0) return 0;
+
+    let valorFinal: number = 0;
+    for(const valor of valores) {
+        if (valorFinal <= valor) valorFinal = valor;
+    }
+    
+    return valorFinal
+}
+
+console.log("Maior: " + maiorCompra(valoresList))
