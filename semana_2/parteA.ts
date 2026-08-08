@@ -63,3 +63,22 @@ function maiorCompra(valores: number[]): number {
 }
 
 console.log("Maior: " + maiorCompra(valoresList))
+
+//A4. mediaAvaliacoes
+
+const notas: number[] = [5, 4]
+
+function mediaAvaliacoes(notas: number[]): number {
+    if (notas.length == 0) return 0;
+
+    let somatoria: number = 0;
+    for (const nota of notas) {
+        somatoria += nota;
+    }
+
+    let resultado = somatoria / notas.length
+
+    return Number(resultado.toFixed(1))
+}
+
+console.log(mediaAvaliacoes(notas))
