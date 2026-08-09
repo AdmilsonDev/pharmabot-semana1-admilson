@@ -62,3 +62,27 @@ Essa ordem importa porque assim evitamos de fazer buscas desnecessárias, a maio
 
 
 A diferença é que o TS sabe o tipo de dado que ele vai receber e não vai deixar ele receber uma string por exemplo, já se colocar Any ele poderá receber qualquer tipo de dado, caso tente chamar classificarEstoque("cinco") tendo declarado o parâmetro como number o TypeScript a pontara um erro de Type, agora caso tenha declarado como Any o TypeScript vai aceitar o parâmetro.
+
+-----
+
+#  SEMANA 2 Parte C — Decisão
+
+## Cenário 1
+> Um gerente pede um relatório de "total gasto este mês" por cliente, somando o carrinho de todos os tickets fechados no mês. Para deixar o relatório mais rápido, ele sugere que o loop pare assim que a soma passar de R$ 500,00, "porque depois disso já sabemos que é um bom cliente, não precisa somar o resto".
+> 
+> **Você concorda com essa otimização? Que erro ela introduz no relatório final, e o que você diria pro gerente sobre essa troca entre velocidade e corretude?**
+
+R: Não concordo, essa lógica faz com que o relatório tenha dados imprecisos dos clientes, afetando futuras decisões ou pesquisas, caso ele queira o maior consumidor ele teria que realizar outra busca somando todos novamente. Eu diria ao gerente que a lógica de parar antes para ter mais velocidade acredito que só vale a pena para um grande número de clientes, mas ainda assim não acredito que seja a melhor opção.
+
+## Cenário 2
+> contarMensagensPorPeriodo classifica cada mensagem usando horaRecebida, que vem do servidor em UTC. A farmácia fica em São Paulo (UTC-3). O time de operações quer usar a contagem de mensagens "à noite" para decidir se vale a pena contratar um atendente para o turno noturno. Uma mensagem enviada às 23h no horário de São Paulo chega ao servidor marcada como 2h (UTC) do dia seguinte.
+> 
+> **Isso muda a decisão do time de operações? O que acontece com essa mensagem específica na contagem por período, e o que você faria antes de confiar nesses números para decidir contratar alguém **
+
+R: Sim, muda a decisão, pois ela vai cair na categoria “madrugada” e não na de “noite”, fazendo com que eles não saibam o real fluxo de cliente nesse horário. Eu faria a conversão para o horário (UTC-3) antes de manipular a variável, garantindo a certeza do horário que o cliente mandou a mensagem. 
+
+## Cenário 3
+> O time de marketing quer usar maiorCompra para identificar automaticamente o "cliente VIP do mês" de cada farmácia e mandar um cupom especial pra essa pessoa.
+> 
+> **Que situação real faria maiorCompra apontar o cliente errado como VIP? Você usaria essa função sozinha para tomar essa decisão, ou mudaria alguma coisa? Não precisa escrever código novo, só explicar a ideia.**
+R: Ela é uma função bem simples, apenas buscar o maior valor em uma lista de compras, acredito que ela possa indicar o cliente errado caso ele utilize de algum cupom de desconto fazendo o valor final ser menor porém ele foi o maior consumidor, outro exemplo é valores iguais a função sempre vai retornar o último cliente com o aquele valor especifico. Não usaria ela sozinha, faria uma função que leia os dados do PDV do cliente para encontrar o cliente que mais consumiu ao longo do mês somando todas as compras daquele indivíduo, como a farmácia tem muita recorrência acho que a melhor maneira de encontrar o VIP é pegando o valor total das compras e não apenas a maior compra do mês. No caso de valores iguais eu desconsiderados cupons de desconto para saber quem foi o maior consumidor para desempatar, caso eles não tenham utilizado nenhum cupom eu retornaria a lista dos cliente VIPs.
