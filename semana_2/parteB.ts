@@ -49,3 +49,26 @@ function contarMensagensPorPeriodo(mensagens: { texto: string, horaRecebida: num
 }
 
 console.log(contarMensagensPorPeriodo(arrayMensagens))
+
+//Bônus 
+type Turno = "madrugada" | "manha" | "tarde" | "noite";
+
+function turnoDePico(mensagens: { texto: string, horaRecebida: number }[]): Turno {
+
+    const quantidadePorTurno = contarMensagensPorPeriodo(mensagens);
+    
+    let turnoComMaiorQuantidadeAtendimento= -Infinity;
+    let turnoComMaiorAtendimento: Turno = "madrugada"
+
+    for (const [chave, valor] of Object.entries(quantidadePorTurno)) {
+        if (valor > turnoComMaiorQuantidadeAtendimento) {
+            turnoComMaiorQuantidadeAtendimento = valor;
+            turnoComMaiorAtendimento = chave as Turno
+        }
+    }
+    
+    return turnoComMaiorAtendimento
+}
+
+console.log(turnoDePico(arrayMensagens))
+
