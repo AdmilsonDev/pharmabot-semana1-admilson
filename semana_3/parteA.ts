@@ -25,3 +25,25 @@ function ticketsAbertos(tickets: Ticket[]): Ticket[] {
 }
 
 console.log(ticketsAbertos(ticketList))
+
+//A3. contarProdutosProximosDoVencimento
+interface Produto {
+    nome: string; 
+    diasParaVencer: number
+}
+
+const produtosList: Produto[] = [{  nome: "a", diasParaVencer: 30 }, { nome: "a", diasParaVencer: 100 }, { nome: "a", diasParaVencer: -1 }]
+
+function contarProdutosProximosDoVencimento(produtos: Produto[]): number {
+    
+    const quantidadeProdutosVencidos = produtos.reduce((acc, produto) => {
+       if (produto.diasParaVencer <= 30) return acc + 1;
+       
+       return acc;
+    }, 0)
+
+    return quantidadeProdutosVencidos
+}
+
+console.log(contarProdutosProximosDoVencimento(produtosList))
+
