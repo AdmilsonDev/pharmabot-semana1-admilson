@@ -47,3 +47,28 @@ function contarProdutosProximosDoVencimento(produtos: Produto[]): number {
 
 console.log(contarProdutosProximosDoVencimento(produtosList))
 
+//A4. precosComDesconto
+interface Percentual {
+    precos: number[], 
+    percentual: number
+}
+
+const percentualList: Percentual = { precos: [100], percentual: 100 };
+
+function precosComDesconto(preco: Percentual): number[] {
+    const descontos = preco.precos.map((precoIndividual) => {
+        
+        const valorDesconto = precoIndividual * (preco.percentual / 100);
+        const precoFinal = precoIndividual - valorDesconto;
+        
+        return Number(precoFinal.toFixed(2));
+    });
+    
+    return descontos;
+}
+
+console.log(precosComDesconto(percentualList))
+
+
+
+// 
